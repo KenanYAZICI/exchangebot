@@ -1,0 +1,44 @@
+spring:
+  profiles:
+    active: dev
+  datasource:    url: jdbc:postgresql://localhost:5432/crypto_bot_dev_db
+    username: crypto_bot_dev
+    password: Aa123456 
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        '[default_schema]': crypto_schema
+        '[use_sql_comments]': false
+        '[format_sql]': true
+        type: trace
+        temp:
+          '[use_jdbc_metadata_defaults]': false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect  
+server:  port: 9090
+api:
+  version=1.0
+swagger:
+  enabled: true
+  title: jpa-spec-with-quartz-and-api API
+  description: Exchange Bot Rest Api
+  useDefaultResponseMessages: false
+  enableUrlTemplating: false
+  deepLinking: true
+  defaultModelsExpandDepth: 1
+  defaultModelExpandDepth : 1
+  displayOperationId: false
+  displayRequestDuration: false
+  filter: false
+  maxDisplayedTags: 0
+  showExtensions: false
+  
+log4j:
+  rootLogger: "INFO, stdout"
+  appender:
+    stdout: "org.apache.log4j.ConsoleAppender"
+    Target: "System.out"
+    layout: "org.apache.log4j.PatternLayout"
+    ConversionPattern: "%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n"
